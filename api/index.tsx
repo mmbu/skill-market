@@ -24,6 +24,7 @@ export const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
   title: 'Farcaster Skill Market',
+  browserLocation: '/',
 })
 
 app.frame('/', (c) => {
