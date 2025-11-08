@@ -3,8 +3,12 @@
   "outputDirectory": "public",
   "rewrites": [
     {
+      "source": "/api",
+      "destination": "/api/index.html"
+    },
+    {
       "source": "/api/:path*",
-      "destination": "/api"
+      "destination": "/api/index.tsx"
     }
   ]
 }
