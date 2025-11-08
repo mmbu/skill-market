@@ -1,0 +1,16 @@
+{
+  "name": "farcaster-skill-market",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "frog dev",
+    "build": "frog build"
+  },
+  "dependencies": {
+    "frog": "^0.8.0",
+    "hono": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  }
+}
