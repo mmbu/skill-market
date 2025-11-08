@@ -51,12 +51,12 @@ app.frame('/', (c) => {
             alignItems: 'center',
           }}
         >
-          <div style={{ fontSize: 80, marginBottom: 20 }}>🎯</div>
-          <div style={{ fontWeight: 'bold' }}>Skill Market</div>
-          <div style={{ fontSize: 30, marginTop: 20 }}>
+          <div style={{ fontSize: 80, marginBottom: 20, display: 'flex' }}>🎯</div>
+          <div style={{ fontWeight: 'bold', display: 'flex' }}>Skill Market</div>
+          <div style={{ fontSize: 30, marginTop: 20, display: 'flex' }}>
             Покупайте и продавайте навыки
           </div>
-          <div style={{ fontSize: 24, marginTop: 30, background: 'rgba(255,255,255,0.2)', padding: '10px 30px', borderRadius: 20 }}>
+          <div style={{ fontSize: 24, marginTop: 30, background: 'rgba(255,255,255,0.2)', padding: '10px 30px', borderRadius: 20, display: 'flex' }}>
             Навыков: {skills.length} | Заказов: {orders.length}
           </div>
         </div>
@@ -84,7 +84,7 @@ app.frame('/browse-skills', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 48, fontWeight: 'bold', color: '#2d3748', marginBottom: 30 }}>
+        <div style={{ fontSize: 48, fontWeight: 'bold', color: '#2d3748', marginBottom: 30, display: 'flex' }}>
           🛒 Навыки на продажу
         </div>
         
@@ -139,7 +139,7 @@ app.frame('/browse-orders', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 48, fontWeight: 'bold', color: '#2d3748', marginBottom: 30 }}>
+        <div style={{ fontSize: 48, fontWeight: 'bold', color: '#2d3748', marginBottom: 30, display: 'flex' }}>
           💼 Открытые заказы
         </div>
         
@@ -195,10 +195,10 @@ app.frame('/create-skill', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 60, color: 'white', marginBottom: 30 }}>
+        <div style={{ fontSize: 60, color: 'white', marginBottom: 30, display: 'flex' }}>
           ➕ Создать предложение
         </div>
-        <div style={{ fontSize: 32, color: 'white', textAlign: 'center' }}>
+        <div style={{ fontSize: 32, color: 'white', textAlign: 'center', display: 'flex' }}>
           Введите название услуги
         </div>
       </div>
@@ -228,10 +228,10 @@ app.frame('/create-skill-price', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 48, color: 'white', marginBottom: 20 }}>
+        <div style={{ fontSize: 48, color: 'white', marginBottom: 20, display: 'flex' }}>
           💰 Укажите цену
         </div>
-        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 30 }}>
+        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 30, display: 'flex' }}>
           {skillTitle}
         </div>
       </div>
@@ -250,7 +250,7 @@ app.frame('/create-skill-confirm', (c) => {
   const url = new URL(c.req.url)
   const title = url.searchParams.get('title') || 'Услуга'
   const price = parseFloat(c.inputText || '0')
-  const fid = c.frameData?.fid || 'anonymous'
+  const fid = c.frameData?.fid || 999
   
   skills.push({
     id: `skill_${Date.now()}`,
@@ -273,14 +273,14 @@ app.frame('/create-skill-confirm', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 80, marginBottom: 30 }}>✅</div>
-        <div style={{ fontSize: 48, color: 'white', fontWeight: 'bold', marginBottom: 20 }}>
+        <div style={{ fontSize: 80, marginBottom: 30, display: 'flex' }}>✅</div>
+        <div style={{ fontSize: 48, color: 'white', fontWeight: 'bold', marginBottom: 20, display: 'flex' }}>
           Создано!
         </div>
-        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 20 }}>
+        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 20, display: 'flex' }}>
           {title}
         </div>
-        <div style={{ fontSize: 32, color: 'white', background: 'rgba(255,255,255,0.2)', padding: '15px 40px', borderRadius: 20 }}>
+        <div style={{ fontSize: 32, color: 'white', background: 'rgba(255,255,255,0.2)', padding: '15px 40px', borderRadius: 20, display: 'flex' }}>
           💰 {price} токенов
         </div>
       </div>
@@ -307,10 +307,10 @@ app.frame('/create-order', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 60, color: 'white', marginBottom: 30 }}>
+        <div style={{ fontSize: 60, color: 'white', marginBottom: 30, display: 'flex' }}>
           📝 Создать заказ
         </div>
-        <div style={{ fontSize: 32, color: 'white', textAlign: 'center' }}>
+        <div style={{ fontSize: 32, color: 'white', textAlign: 'center', display: 'flex' }}>
           Что нужно сделать?
         </div>
       </div>
@@ -340,10 +340,10 @@ app.frame('/create-order-budget', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 48, color: 'white', marginBottom: 20 }}>
+        <div style={{ fontSize: 48, color: 'white', marginBottom: 20, display: 'flex' }}>
           💵 Укажите бюджет
         </div>
-        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 30 }}>
+        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 30, display: 'flex' }}>
           {orderTitle}
         </div>
       </div>
@@ -362,7 +362,7 @@ app.frame('/create-order-confirm', (c) => {
   const url = new URL(c.req.url)
   const title = url.searchParams.get('title') || 'Заказ'
   const budget = parseFloat(c.inputText || '0')
-  const fid = c.frameData?.fid || 'anonymous'
+  const fid = c.frameData?.fid || 999
   
   orders.push({
     id: `order_${Date.now()}`,
@@ -385,14 +385,14 @@ app.frame('/create-order-confirm', (c) => {
           width: '100%',
         }}
       >
-        <div style={{ fontSize: 80, marginBottom: 30 }}>✅</div>
-        <div style={{ fontSize: 48, color: 'white', fontWeight: 'bold', marginBottom: 20 }}>
+        <div style={{ fontSize: 80, marginBottom: 30, display: 'flex' }}>✅</div>
+        <div style={{ fontSize: 48, color: 'white', fontWeight: 'bold', marginBottom: 20, display: 'flex' }}>
           Заказ создан!
         </div>
-        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 20 }}>
+        <div style={{ fontSize: 28, color: 'white', textAlign: 'center', marginBottom: 20, display: 'flex' }}>
           {title}
         </div>
-        <div style={{ fontSize: 32, color: 'white', background: 'rgba(255,255,255,0.2)', padding: '15px 40px', borderRadius: 20 }}>
+        <div style={{ fontSize: 32, color: 'white', background: 'rgba(255,255,255,0.2)', padding: '15px 40px', borderRadius: 20, display: 'flex' }}>
           💵 {budget} токенов
         </div>
       </div>
