@@ -24,7 +24,25 @@ export const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
   title: 'Farcaster Skill Market',
-  browserLocation: '/',
+  hub: {
+    apiUrl: "https://hubs.airstack.xyz",
+    fetchOptions: {
+      headers: {
+        "x-airstack-hubs": process.env.AIRSTACK_API_KEY || "",
+      }
+    }
+  }
+})
+
+// Middleware для добавления SDK ready
+app.use(async (c, next) => {
+  await next()
+  
+  const res = c.res
+  if (res) {
+    const originalHeaders = res.headers
+    res.headers.set('X-Frame-Options', 'ALLOWALL')
+  }
 })
 
 app.frame('/', (c) => {
