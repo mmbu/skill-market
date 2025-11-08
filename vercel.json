@@ -1,8 +1,7 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.tsx"
+  "functions": {
+    "api/index.tsx": {
+      "runtime": "edge"
     }
-  ]
+  }
 }
