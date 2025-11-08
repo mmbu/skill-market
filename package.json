@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "frog": "^0.8.0",
-    "hono": "^3.11.0"
+    "hono": "^4.0.0"
   },
   "devDependencies": {
     "@types/node": "^20.10.0"
